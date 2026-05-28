@@ -1,0 +1,17 @@
+# Claude Code local state
+.claude/
+
+# Source PDFs at repo root (the public copies live under assets/)
+/CV_Maida_Wang__2026N_.pdf
+/Foundations_of_Practical_Quantum_Advantage_in_Quantum_Informed_Machine_Learning_for_Chaotic_Dynamical_Systems.pdf
+/Quantum Machine Learning Academic Poster_cmyk.pdf
+/Maida.jpg
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp

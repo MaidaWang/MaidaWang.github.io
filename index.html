@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Maida Wang — PhD student at University College London, working on quantum machine learning, quantum-informed PDEs, and practical quantum advantage on near-term hardware." />
+<title>Maida Wang — UCL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">
+      <span class="nav__brand-mark">MW</span>
+      <span class="nav__brand-name">Maida Wang</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ────────────── HERO ────────────── -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__portrait">
+        <div class="portrait-frame">
+          <img src="assets/portrait.jpg" alt="Maida Wang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="portrait-placeholder">
+            <span>portrait.jpg</span>
+          </div>
+        </div>
+        <div class="portrait-orbit"></div>
+      </div>
+
+      <div class="hero__body">
+        <div class="hero__eyebrow">
+          <span class="dot"></span>
+          <span>PhD Student · University College London</span>
+        </div>
+        <h1 class="hero__name">
+          Maida <span class="grad">Wang</span>
+        </h1>
+        <p class="hero__tagline">
+          I work on the <em>theory</em> and <em>experiment</em> of quantum
+          computing — quantum machine learning expressivity and
+          generalisation bounds on one side, real superconducting and
+          photonic hardware on the other.
+        </p>
+
+        <ul class="hero__meta">
+          <li><span class="k">Group</span><span class="v">Centre for Computational Science</span></li>
+          <li><span class="k">Supervisor</span><span class="v">Prof. Peter V. Coveney</span></li>
+          <li><span class="k">2nd Supervisor</span><span class="v">Prof. Dan Browne</span></li>
+          <li><span class="k">Funded by</span><span class="v">UCL Dean's Scholarship</span></li>
+          <li><span class="k">Based in</span><span class="v">London, UK</span></li>
+        </ul>
+
+        <div class="hero__links">
+          <a class="chip" href="mailto:maida.wang.24@ucl.ac.uk">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M3 5h18v14H3zM12 13L4 7v10h16V7z"/></svg>
+            Email
+          </a>
+          <a class="chip" href="https://scholar.google.com/citations?user=FOsBX3kAAAAJ" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9zM5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+            Google Scholar
+          </a>
+          <a class="chip" href="https://profiles.ucl.ac.uk/101115-maida-wang" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m6.93 6h-2.95a15.7 15.7 0 0 0-1.38-3.56A8 8 0 0 1 18.93 8M12 4.04A13.9 13.9 0 0 1 13.91 8h-3.82A13.9 13.9 0 0 1 12 4.04M4.26 14a8 8 0 0 1 0-4h3.38a16.5 16.5 0 0 0 0 4m.81 2h2.95a15.7 15.7 0 0 0 1.38 3.56A8 8 0 0 1 5.07 16M8.02 8H5.07a8 8 0 0 1 4.33-3.56A15.7 15.7 0 0 0 8.02 8M12 19.96A13.9 13.9 0 0 1 10.09 16h3.82A13.9 13.9 0 0 1 12 19.96M14.34 14H9.66a14.4 14.4 0 0 1 0-4h4.68a14.4 14.4 0 0 1 0 4m.26 5.56A15.7 15.7 0 0 0 15.98 16h2.95a8 8 0 0 1-4.33 3.56M16.36 14a16.5 16.5 0 0 0 0-4h3.38a8 8 0 0 1 0 4Z"/></svg>
+            UCL Profile
+          </a>
+          <a class="chip" href="assets/CV_Maida_Wang.pdf" target="_blank">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm-1 7V3.5L18.5 9z"/></svg>
+            CV
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a href="#about" class="hero__scroll" aria-label="Scroll to content">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-text">scroll</span>
+    </a>
+  </section>
+
+  <!-- ────────────── ABOUT ────────────── -->
+  <section id="about" class="section">
+    <div class="section__header">
+      <span class="section__index">01</span>
+      <h2 class="section__title">About</h2>
+      <span class="section__line"></span>
+    </div>
+
+    <div class="prose">
+      <p>
+        I am a PhD student in the
+        <a href="https://www.ucl.ac.uk/computational-science/" target="_blank" rel="noopener">Centre for Computational Science</a>
+        at <strong>University College London</strong>, supervised by
+        <a href="https://profiles.ucl.ac.uk/9251-peter-coveney" target="_blank" rel="noopener">Prof. Peter V. Coveney</a>
+        and co-supervised by <a href="https://profiles.ucl.ac.uk/15036-dan-browne" target="_blank" rel="noopener">Prof. Dan Browne</a>.
+        My doctoral studies are supported by the
+        <strong>UCL Dean's Scholarship</strong>; the research projects I
+        contribute to are funded separately through the EPSRC programme
+        grant <span class="mono">EP/W007711/1</span> and the SEAVEA
+        exascale-applications consortium.
+      </p>
+      <p>
+        I work across the <em>theoretical</em> and <em>experimental</em>
+        sides of quantum computing. On the theory side, my focus is the
+        <strong>expressivity and generalisation</strong> of quantum
+        machine learning models — covering-number arguments, effective
+        dimension and active subspaces of parameterised quantum circuits,
+        and Fisher-information / gradient-covariance geometry under
+        Lie-algebraic parameterisations. I also work on the
+        <strong>information-theoretic</strong> side of QML: recent work
+        proves a two-stage practical quantum advantage for
+        Quantum-Informed Machine Learning, using
+        <strong>Bell-type joint-copy measurements</strong> to extract
+        <em>post hoc</em> Pauli statistics with copy complexity
+        independent of qubit count — a separation against an
+        <span class="mono">Ω(2<sup>kq</sup>)</span> lower bound for any
+        adaptive single-copy protocol.
+      </p>
+      <p>
+        On the experimental side, I have run hardware experiments on both
+        <strong>superconducting</strong> processors (most recently IQM-Garnet)
+        and <strong>photonic</strong> quantum devices — designing
+        parameter-efficient circuits, encoding schemes, and measurement
+        protocols that survive realistic noise on near-term hardware.
+      </p>
+      <p>
+        Before UCL I did my BSc and MSc at <strong>Wuhan University</strong>
+        (武汉大学), and before that I went to
+        <strong>Changsha No.1 High School</strong> (长沙市第一中学). Outside of
+        research I take long walks, take care of a Shiba Inu, and read more
+        physics history than is good for me.
+      </p>
+    </div>
+  </section>
+
+  <!-- ────────────── RESEARCH ────────────── -->
+  <section id="research" class="section">
+    <div class="section__header">
+      <span class="section__index">02</span>
+      <h2 class="section__title">Research Interests</h2>
+      <span class="section__line"></span>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card">
+        <div class="card__icon">⟨ψ|</div>
+        <h3>QML Theory</h3>
+        <p>Expressivity bounds via covering numbers, effective dimension
+        and active subspaces of PQCs, and generalisation derivations
+        under Lie-algebraic parameterisations.</p>
+      </article>
+      <article class="card">
+        <div class="card__icon">⌬</div>
+        <h3>Quantum Hardware</h3>
+        <p>Hands-on experiments on both <em>superconducting</em>
+        (IQM-Garnet) and <em>photonic</em> quantum processors — shallow
+        circuits, encoding schemes, and noise-aware measurement
+        protocols, including Bell-type measurements.</p>
+      </article>
+      <article class="card">
+        <div class="card__icon">∂t u</div>
+        <h3>Quantum-Informed PDEs</h3>
+        <p>Quantum priors as a structural regulariser for spatiotemporal
+        chaos — Kuramoto–Sivashinsky, 2D Kolmogorov flow, turbulent
+        channels — toward weather-scale forecasting.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ────────────── NEWS ────────────── -->
+  <section id="news" class="section">
+    <div class="section__header">
+      <span class="section__index">03</span>
+      <h2 class="section__title">News</h2>
+      <span class="section__line"></span>
+    </div>
+
+    <ol class="news">
+      <li class="news__item news__item--press">
+        <time>2026 · Apr</time>
+        <div class="news__body">
+          <span class="badge">Press</span>
+          <strong>Roger Highfield</strong> covered the QIML work for the
+          Science Museum blog: <em>“From turbulence to treatments:
+          quantum computing boosts AI and medicine.”</em>
+          <a class="ext" href="https://blog.sciencemuseum.org.uk/from-turbulence-to-treatments-quantum-computing-boosts-ai-and-medicine/" target="_blank" rel="noopener">Science Museum →</a>
+        </div>
+      </li>
+      <li class="news__item news__item--press">
+        <time>2026 · Apr</time>
+        <div class="news__body">
+          <span class="badge">Press</span>
+          <strong>UCL News</strong>: <em>“Quantum computer improves AI predictions.”</em>
+          <a class="ext" href="https://www.ucl.ac.uk/news/2026/apr/quantum-computer-improves-ai-predictions" target="_blank" rel="noopener">UCL News →</a>
+        </div>
+      </li>
+      <li class="news__item news__item--press">
+        <time>2026 · Apr</time>
+        <div class="news__body">
+          <span class="badge">Press</span>
+          <strong>LRZ</strong> (Leibniz Supercomputing Centre):
+          <em>„Quantencomputer verbessern die Vorhersagen von KI.“</em>
+          <a class="ext" href="https://www.lrz.de/en/news/detail/quantencomputer-verbessern-die-vorhersagen-von-ki" target="_blank" rel="noopener">LRZ →</a>
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2026 · Apr</time>
+        <div class="news__body">
+          Paper <em>“Quantum-Informed Machine Learning for Predicting
+          Spatiotemporal Chaos with Practical Quantum Advantage”</em>
+          published in <strong>Science Advances</strong>.
+          <a class="ext" href="https://www.science.org/doi/10.1126/sciadv.aec5049" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2026 · Feb</time>
+        <div class="news__body">
+          Preprint <em>“Uni-Flow: a unified autoregressive-diffusion model
+          for complex multiscale flows”</em> released on arXiv with Xiao Xue
+          and collaborators.
+          <a class="ext" href="https://arxiv.org/abs/2602.15592" target="_blank" rel="noopener">arXiv →</a>
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2025 · Dec</time>
+        <div class="news__body">
+          New preprint: <em>“Q-BAR: Blogger Anomaly Recognition via
+          Quantum-enhanced Manifold Learning.”</em>
+          <a class="ext" href="https://arxiv.org/abs/2512.11071" target="_blank" rel="noopener">arXiv →</a>
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2025 · Nov</time>
+        <div class="news__body">
+          <em>“Parameter-Efficient Quantum Anomaly Detection Method on a
+          Superconducting Quantum Processor”</em> published in
+          <strong>Physical Review Research</strong>.
+          <a class="ext" href="https://doi.org/10.1103/cv9y-2cnj" target="_blank" rel="noopener">DOI →</a>
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2025 · Sep</time>
+        <div class="news__body">
+          Started Teaching Assistant roles at UCL — Machine Learning
+          (Department of Computer Science) and Mathematical Modelling
+          (Department of Engineering).
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2025 · Jan</time>
+        <div class="news__body">
+          Teaching Assistant at the UCL Department of Information
+          Studies (MySQL).
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2024 · Sep</time>
+        <div class="news__body">
+          Started my PhD at UCL Centre for Computational Science under
+          Prof. Peter V. Coveney and Prof. Dan Browne.
+        </div>
+      </li>
+      <li class="news__item">
+        <time>2023 · Mar</time>
+        <div class="news__body">
+          First first-author paper — <em>“A Quantum-Classical Hybrid
+          Solution for Deep Anomaly Detection”</em> — published in
+          <strong>Entropy</strong>.
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ────────────── PUBLICATIONS ────────────── -->
+  <section id="publications" class="section">
+    <div class="section__header">
+      <span class="section__index">04</span>
+      <h2 class="section__title">Publications</h2>
+      <span class="section__line"></span>
+    </div>
+
+    <p class="muted small">
+      <span class="kbd">*</span> denotes corresponding author ·
+      <span class="kbd">†</span> equal contribution. Full list on
+      <a href="https://scholar.google.com/citations?user=FOsBX3kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
+
+    <div class="pubs">
+
+      <article class="pub">
+        <div class="pub__thumb pub__thumb--theory">Thy<span>2026</span></div>
+        <div class="pub__body">
+          <h3 class="pub__title">
+            Foundations of Practical Quantum Advantage in Quantum-Informed
+            Machine Learning for Chaotic Dynamical Systems
+          </h3>
+          <p class="pub__authors">
+            <strong>Maida Wang</strong>, Xiao Xue, Zohim Chandani,
+            Minh Chung, Peter V. Coveney<sup>*</sup>
+          </p>
+          <p class="pub__venue">
+            Manuscript · 2026 ·
+            <span class="muted">UCL · NVIDIA · LRZ</span>
+          </p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__thumb pub__thumb--sa">SA<span>2026</span></div>
+        <div class="pub__body">
+          <h3 class="pub__title">
+            Quantum-Informed Machine Learning for Predicting Spatiotemporal
+            Chaos with Practical Quantum Advantage
+          </h3>
+          <p class="pub__authors">
+            <strong>Maida Wang</strong><sup>†</sup>, Xiao Xue<sup>†</sup>,
+            Mingyang Gao, Peter V. Coveney<sup>*</sup>
+          </p>
+          <p class="pub__venue">
+            <em>Science Advances</em>, 12(16), eaec5049 · 2026
+          </p>
+          <div class="pub__links">
+            <a href="https://www.science.org/doi/10.1126/sciadv.aec5049" target="_blank" rel="noopener">DOI</a>
+            <a href="https://arxiv.org/abs/2507.19861" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://www.ucl.ac.uk/news/2026/apr/quantum-computer-improves-ai-predictions" target="_blank" rel="noopener">UCL News</a>
+            <a href="https://blog.sciencemuseum.org.uk/from-turbulence-to-treatments-quantum-computing-boosts-ai-and-medicine/" target="_blank" rel="noopener">Science Museum</a>
+            <a href="https://www.lrz.de/en/news/detail/quantencomputer-verbessern-die-vorhersagen-von-ki" target="_blank" rel="noopener">LRZ</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__thumb pub__thumb--prr">PRR<span>2025</span></div>
+        <div class="pub__body">
+          <h3 class="pub__title">
+            Parameter-Efficient Quantum Anomaly Detection Method on a
+            Superconducting Quantum Processor
+          </h3>
+          <p class="pub__authors">
+            <strong>Maida Wang</strong>, Jinyang Jiang, Peter V. Coveney<sup>*</sup>
+          </p>
+          <p class="pub__venue">
+            <em>Physical Review Research</em>, 7, 043094 · 2025
+          </p>
+          <div class="pub__links">
+            <a href="https://doi.org/10.1103/cv9y-2cnj" target="_blank" rel="noopener">DOI</a>
+            <a href="https://arxiv.org/abs/2412.16867" target="_blank" rel="noopener">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__thumb pub__thumb--arx">arXiv<span>2026</span></div>
+        <div class="pub__body">
+          <h3 class="pub__title">
+            Uni-Flow: A Unified Autoregressive-Diffusion Model for
+            Complex Multiscale Flows
+          </h3>
+          <p class="pub__authors">
+            X. Xue, T. Yang, M. Gao, L. Pan, <strong>Maida Wang</strong>,
+            K. Zhu, &nbsp;&hellip;&nbsp; Peter V. Coveney
+          </p>
+          <p class="pub__venue">
+            arXiv:2602.15592 · 2026
+          </p>
+          <div class="pub__links">
+            <a href="https://arxiv.org/abs/2602.15592" target="_blank" rel="noopener">arXiv</a>
+            <a href="https://arxiv.org/pdf/2602.15592" target="_blank" rel="noopener">PDF</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__thumb pub__thumb--arx">arXiv<span>2025</span></div>
+        <div class="pub__body">
+          <h3 class="pub__title">
+            Q-BAR: Blogger Anomaly Recognition via Quantum-enhanced
+            Manifold Learning
+          </h3>
+          <p class="pub__authors">
+            <strong>Maida Wang</strong>, P. Jiang
+          </p>
+          <p class="pub__venue">
+            arXiv:2512.11071 · 2025
+          </p>
+          <div class="pub__links">
+            <a href="https://arxiv.org/abs/2512.11071" target="_blank" rel="noopener">arXiv</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__thumb pub__thumb--ent">Ent<span>2023</span></div>
+        <div class="pub__body">
+          <h3 class="pub__title">
+            A Quantum-Classical Hybrid Solution for Deep Anomaly Detection
+          </h3>
+          <p class="pub__authors">
+            <strong>Maida Wang</strong>, Anqi Huang<sup>*</sup>, Yong Liu,
+            Xiang Yi, Junjie Wu, Songhui Wang
+          </p>
+          <p class="pub__venue">
+            <em>Entropy</em>, 25(3), 427 · 2023
+          </p>
+          <div class="pub__links">
+            <a href="https://doi.org/10.3390/e25030427" target="_blank" rel="noopener">DOI</a>
+            <a href="https://www.mdpi.com/1099-4300/25/3/427" target="_blank" rel="noopener">MDPI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__thumb pub__thumb--ent">Conf<span>2020</span></div>
+        <div class="pub__body">
+          <h3 class="pub__title">
+            Using the Ternary Closed-loop Model to Research on Pterosaurs'
+            Flight Capability
+          </h3>
+          <p class="pub__authors">
+            <strong>Maida Wang</strong>, Zhongxiang Zhang<sup>*</sup>
+          </p>
+          <p class="pub__venue">
+            Proc. ICMAI · 2020
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ────────────── PROJECTS ────────────── -->
+  <section id="projects" class="section">
+    <div class="section__header">
+      <span class="section__index">05</span>
+      <h2 class="section__title">Projects</h2>
+      <span class="section__line"></span>
+    </div>
+
+    <p class="muted small">
+      My PhD work — <em>“Towards Practical Advantage with Quantum
+      Machine Learning”</em> — is organised around three threads.
+      <a href="assets/2nd_year_poster.pdf" target="_blank" rel="noopener" style="color:var(--accent);">2nd-Year Review poster (PDF) →</a>
+    </p>
+
+    <div class="grid grid--2">
+
+      <article class="card card--project">
+        <div class="card__tag">Experiment · QIML</div>
+        <h3>Quantum-Informed Machine Learning for Chaotic PDEs</h3>
+        <p>
+          A hybrid quantum–classical framework — a small quantum generator
+          (<em>Q-Prior</em>) trained on the IQM-Garnet superconducting chip,
+          paired with a transformer-based classical predictor — for
+          long-horizon prediction of chaotic dynamics. Validated on
+          Kuramoto–Sivashinsky, 2D Kolmogorov flow, and turbulent
+          channel flows; achieves stable forecasts and a ~10<sup>3</sup>:1
+          memory advantage over raw datasets. Published in
+          <em>Science Advances</em> (2026), in collaboration with
+          <strong>NVIDIA</strong>, <strong>IQM</strong>, and
+          <strong>LRZ</strong>.
+        </p>
+        <div class="card__partners">
+          <span>UCL</span><span>NVIDIA</span><span>IQM</span><span>LRZ</span>
+        </div>
+      </article>
+
+      <article class="card card--project">
+        <div class="card__tag">Experiment · PEQAD</div>
+        <h3>Parameter-Efficient Quantum Anomaly Detection</h3>
+        <p>
+          A quantum anomaly-detection framework optimised for shallow
+          circuits and few measurements, deployed on real
+          <strong>superconducting</strong> hardware and benchmarked on
+          <strong>photonic</strong> devices. Combines amplitude encoding
+          with a deep one-class objective to beat classical baselines in
+          the small-sample regime. Published in
+          <em>Physical Review Research</em> (2025).
+        </p>
+        <div class="card__partners">
+          <span>UCL</span><span>Superconducting QPU</span><span>Photonic QPU</span>
+        </div>
+      </article>
+
+      <article class="card card--project">
+        <div class="card__tag">Theory · Foundations</div>
+        <h3>Foundations of Practical Quantum Advantage in QIML</h3>
+        <p>
+          A theory paper formalising a <em>practical quantum advantage</em>
+          mechanism for QIML on chaotic systems. We extend the single-site
+          Q-Prior to a <strong>k-indexed family</strong> of higher-order
+          quantum statistical priors on <span class="mono">n<sub>q</sub> = kq</span>
+          qubits, and prove a <strong>two-stage advantage</strong>:
+          (i) representation — entanglement compactly stores
+          non-factorisable spatial correlations of the invariant measure;
+          (ii) extraction — <strong>Bell measurements</strong> on two
+          copies estimate any <em>post hoc</em> Pauli statistic with copy
+          complexity independent of <span class="mono">n<sub>q</sub></span>,
+          while adaptive single-copy protocols require
+          <span class="mono">Ω(2<sup>kq</sup>)</span> copies. The
+          mechanism is instantiated on <strong>ECMWF ERA5</strong>
+          weather data inside a Koopman model: <strong>+10–38% ACC</strong>
+          on Z500 over 48–240h lead times.
+        </p>
+        <div class="card__partners">
+          <span>UCL CCS</span><span>NVIDIA</span><span>LRZ</span><span>Manuscript · 2026</span>
+        </div>
+      </article>
+
+      <article class="card card--project">
+        <div class="card__tag">Theory · Ongoing</div>
+        <h3>Expressivity, Generalisation &amp; Bell-Type Measurement</h3>
+        <p>
+          A broader theory thread on the learning-theoretic foundations of
+          QML: <strong>expressivity</strong> bounds via covering numbers,
+          effective dimension and active subspaces of PQCs;
+          <strong>generalisation</strong> derivations under Lie-algebraic
+          parameterisations and Fisher-information / gradient-covariance
+          geometry; and the structural role of
+          <strong>Bell-type measurement</strong> and non-classical
+          correlations in QML protocols. Funded through EPSRC
+          <span class="mono">EP/W007711/1</span> + SEAVEA.
+        </p>
+        <div class="card__partners">
+          <span>EPSRC EP/W007711/1</span><span>SEAVEA</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ────────────── EDUCATION ────────────── -->
+  <section id="education" class="section">
+    <div class="section__header">
+      <span class="section__index">06</span>
+      <h2 class="section__title">Education &amp; Experience</h2>
+      <span class="section__line"></span>
+    </div>
+
+    <ol class="timeline">
+
+      <li class="timeline__item">
+        <span class="timeline__dot"></span>
+        <div class="timeline__when">2024.09 — present</div>
+        <div class="timeline__body">
+          <h3>PhD in Quantum Computing and Machine Learning</h3>
+          <p>
+            University College London (UCL), Centre for Computational
+            Science, Department of Chemistry.<br/>
+            Supervised by Prof. Peter V. Coveney and Prof. Dan Browne.
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline__item">
+        <span class="timeline__dot"></span>
+        <div class="timeline__when">2021.09 — 2024.06</div>
+        <div class="timeline__body">
+          <h3>MSc in Applied Mathematics</h3>
+          <p>Wuhan University (武汉大学), Wuhan, China.</p>
+        </div>
+      </li>
+
+      <li class="timeline__item">
+        <span class="timeline__dot"></span>
+        <div class="timeline__when">2017.09 — 2021.06</div>
+        <div class="timeline__body">
+          <h3>BSc in Mathematics and Applied Mathematics</h3>
+          <p>Wuhan University (武汉大学), Wuhan, China.</p>
+        </div>
+      </li>
+
+      <li class="timeline__item">
+        <span class="timeline__dot"></span>
+        <div class="timeline__when">— 2017</div>
+        <div class="timeline__body">
+          <h3>Changsha No.1 High School (长沙市第一中学)</h3>
+          <p>Changsha, Hunan, China.</p>
+        </div>
+      </li>
+
+      <li class="timeline__item timeline__item--break">
+        <span class="timeline__dot timeline__dot--alt"></span>
+        <div class="timeline__when">Industry · 2022 — 2024</div>
+        <div class="timeline__body">
+          <h3>Industry Roles</h3>
+          <p>
+            <strong>2086 Laboratory, China Electronics Corp.</strong> ·
+            Advanced Computing Engineer (quantum ML algorithms) ·
+            <span class="mono">2022.11 – 2024.06</span><br/>
+            <strong>Baidu</strong> · Algorithm Engineer, Baidu Quantum
+            Platform ·
+            <span class="mono">2022.08 – 2022.11</span>
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline__item timeline__item--break">
+        <span class="timeline__dot timeline__dot--alt"></span>
+        <div class="timeline__when">Teaching · 2025 — 2026</div>
+        <div class="timeline__body">
+          <h3>UCL Teaching Assistant</h3>
+          <p>
+            Department of Computer Science — Machine Learning ·
+            <span class="mono">2025.09 – 2026.03</span><br/>
+            Department of Engineering — Mathematical Modelling ·
+            <span class="mono">2025.09 – 2026.03</span><br/>
+            Department of Information Studies — MySQL ·
+            <span class="mono">2025.01 – 2025.05</span>
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ────────────── CONTACT ────────────── -->
+  <section id="contact" class="section section--contact">
+    <div class="section__header">
+      <span class="section__index">07</span>
+      <h2 class="section__title">Get in Touch</h2>
+      <span class="section__line"></span>
+    </div>
+
+    <div class="contact">
+      <p>
+        I'm always happy to talk about quantum machine learning, chaotic
+        dynamics, or anything sitting awkwardly between physics, statistics
+        and computer science. The fastest way to reach me is email — and
+        for the academic record, my
+        <a href="https://scholar.google.com/citations?user=FOsBX3kAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        and
+        <a href="https://profiles.ucl.ac.uk/101115-maida-wang" target="_blank" rel="noopener">UCL profile</a>
+        are the most up-to-date.
+      </p>
+      <div class="contact__email">
+        <span class="mono">maida.wang.24<span class="at">@</span>ucl.ac.uk</span>
+        <button class="copy" data-copy="maida.wang.24@ucl.ac.uk" aria-label="Copy email">Copy</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__inner">
+    <div class="foot__left">
+      <span>© <span id="year"></span> Maida Wang</span>
+      <span class="mono">·</span>
+      <span>London / 长沙</span>
+    </div>
+    <div class="foot__right">
+      <a href="https://scholar.google.com/citations?user=FOsBX3kAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar">Scholar</a>
+      <span class="mono">·</span>
+      <a href="https://profiles.ucl.ac.uk/101115-maida-wang" target="_blank" rel="noopener" aria-label="UCL Profile">UCL</a>
+      <span class="mono">·</span>
+      <a href="mailto:maida.wang.24@ucl.ac.uk" aria-label="Email">Email</a>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" aria-label="Back to top" hidden>
+  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
