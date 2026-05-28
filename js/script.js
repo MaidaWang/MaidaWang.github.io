@@ -101,7 +101,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     const CX = W / 2, CY = H / 2;
-    const R  = 165;                   // sphere radius (>portrait radius=140 so halo shows)
+    const R  = 200;                   // sphere radius (>portrait radius=140 so halo shows)
 
     // camera rotation state (radians)
     let rx = -0.45;                   // tilt down
@@ -255,9 +255,9 @@
       ctx.clearRect(0, 0, W, H);
 
       // wireframe sphere — equator (z-axis great circle), meridian (x), meridian (y)
-      drawCircle('z', 0.38, 0.10, '#5cf0ff');   // equator
-      drawCircle('y', 0.28, 0.08, '#8b6cff');   // meridian
-      drawCircle('x', 0.28, 0.08, '#8b6cff');   // meridian
+      drawCircle('z', 0.65, 0.18, '#5cf0ff');   // equator
+      drawCircle('y', 0.50, 0.14, '#8b6cff');   // meridian
+      drawCircle('x', 0.50, 0.14, '#8b6cff');   // meridian
 
       // axes (X cyan, Y violet, Z magenta) with computational-basis labels
       drawAxis({ x: 1, y: 0, z: 0 }, '#5cf0ff', ['|+⟩', '|−⟩']);
