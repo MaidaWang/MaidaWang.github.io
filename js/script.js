@@ -275,7 +275,7 @@
     requestAnimationFrame(frame);
   })();
 
-  /* ── background canvas: a slow quantum-circuit field ── */
+  /* ── background canvas: a soft quantum-network field ─── */
   const canvas = document.getElementById('bg-canvas');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!canvas || reduced) return;
@@ -283,26 +283,9 @@
   const ctx = canvas.getContext('2d');
   let W = 0, H = 0, dpr = 1;
 
-  const WIRE_GAP    = 90;     // vertical spacing between qubit lines
-  const SPEED       = 0.25;   // px / frame drift to the left
-  const GATE_SIZE   = 26;
-  const SPAWN_EVERY = 75;     // frames between gate spawns
-
-  let wires = [];             // y positions
-  const gates = [];           // {x, wire, kind, color, alpha}
-  let frameCount = 0;
-
-  // gate kinds available; CNOT pairs are spawned specially below
-  const GATE_KINDS = ['H', 'X', 'Y', 'Z', 'T', 'S', 'R'];
-  const PALETTE = {
-    H: [92, 240, 255],     // cyan
-    X: [255, 122, 214],    // magenta
-    Y: [139, 108, 255],    // violet
-    Z: [255, 122, 214],
-    T: [139, 108, 255],
-    S: [92, 240, 255],
-    R: [255, 209, 102],    // warm amber for rotation
-  };
+  const COUNT = 70;
+  const MAX_DIST = 140;
+  const points = [];
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -311,127 +294,72 @@
     canvas.width  = Math.floor(W * dpr);
     canvas.height = Math.floor(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    // compute wire y positions, leaving a bit of margin top/bottom
-    wires = [];
-    const usableH = H - 60;
-    const count = Math.max(4, Math.floor(usableH / WIRE_GAP));
-    const startY = (H - (count - 1) * WIRE_GAP) / 2;
-    for (let i = 0; i < count; i++) wires.push(startY + i * WIRE_GAP);
   }
 
-  function spawnGate() {
-    // 18% chance of spawning a CNOT, otherwise a single-qubit gate
-    if (Math.random() < 0.18 && wires.length >= 3) {
-      const i = Math.floor(Math.random() * wires.length);
-      let j = i + (Math.random() < 0.5 ? 1 : -1) * (1 + Math.floor(Math.random() * 2));
-      j = Math.max(0, Math.min(wires.length - 1, j));
-      if (j === i) return;
-      gates.push({
-        x: W + GATE_SIZE, kind: 'CNOT',
-        ctrl: i, target: j,
-        color: [92, 240, 255], alpha: 0,
+  function seed() {
+    points.length = 0;
+    for (let i = 0; i < COUNT; i++) {
+      points.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - .5) * 0.25,
+        vy: (Math.random() - .5) * 0.25,
+        r: Math.random() * 1.4 + 0.6,
+        hue: Math.random() < .65 ? 'cyan' : (Math.random() < .5 ? 'violet' : 'magenta'),
       });
-    } else {
-      const kind = GATE_KINDS[Math.floor(Math.random() * GATE_KINDS.length)];
-      const wire = Math.floor(Math.random() * wires.length);
-      gates.push({ x: W + GATE_SIZE, wire, kind, color: PALETTE[kind], alpha: 0 });
     }
   }
 
-  function drawWires() {
-    ctx.lineWidth = 1;
-    for (const y of wires) {
-      ctx.strokeStyle = 'rgba(255,255,255,0.05)';
-      ctx.beginPath();
-      ctx.moveTo(0, y); ctx.lineTo(W, y);
-      ctx.stroke();
-    }
-  }
-
-  function drawGate(g) {
-    const a = g.alpha;
-    const [r, gg, b] = g.color;
-
-    if (g.kind === 'CNOT') {
-      const yc = wires[g.ctrl];
-      const yt = wires[g.target];
-      // vertical link
-      ctx.strokeStyle = `rgba(${r},${gg},${b},${a * 0.7})`;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(g.x, yc); ctx.lineTo(g.x, yt);
-      ctx.stroke();
-      // control dot
-      ctx.fillStyle = `rgba(${r},${gg},${b},${a})`;
-      ctx.beginPath();
-      ctx.arc(g.x, yc, 4, 0, Math.PI * 2);
-      ctx.fill();
-      // ⊕ on target
-      ctx.strokeStyle = `rgba(${r},${gg},${b},${a})`;
-      ctx.lineWidth = 1.5;
-      ctx.beginPath(); ctx.arc(g.x, yt, 8, 0, Math.PI * 2); ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(g.x - 8, yt); ctx.lineTo(g.x + 8, yt);
-      ctx.moveTo(g.x, yt - 8); ctx.lineTo(g.x, yt + 8);
-      ctx.stroke();
-      return;
-    }
-
-    const y = wires[g.wire];
-
-    // single-qubit gate box
-    const s = GATE_SIZE;
-    ctx.save();
-    ctx.globalAlpha = a;
-    ctx.fillStyle = `rgba(${r},${gg},${b},0.12)`;
-    ctx.strokeStyle = `rgba(${r},${gg},${b},0.85)`;
-    ctx.lineWidth = 1;
-    const rd = 4;
-    ctx.beginPath();
-    ctx.moveTo(g.x - s/2 + rd, y - s/2);
-    ctx.arcTo(g.x + s/2, y - s/2, g.x + s/2, y + s/2, rd);
-    ctx.arcTo(g.x + s/2, y + s/2, g.x - s/2, y + s/2, rd);
-    ctx.arcTo(g.x - s/2, y + s/2, g.x - s/2, y - s/2, rd);
-    ctx.arcTo(g.x - s/2, y - s/2, g.x + s/2, y - s/2, rd);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = `rgba(${r},${gg},${b},1)`;
-    ctx.font = '600 12px "JetBrains Mono", ui-monospace, monospace';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(g.kind, g.x, y + 1);
-    ctx.restore();
-  }
+  const colors = {
+    cyan:    [92, 240, 255],
+    violet:  [139, 108, 255],
+    magenta: [255, 122, 214],
+  };
 
   function frame() {
     ctx.clearRect(0, 0, W, H);
-    drawWires();
 
-    // spawn
-    frameCount++;
-    if (frameCount % SPAWN_EVERY === 0) spawnGate();
+    for (const p of points) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
 
-    // update + draw
-    for (let i = gates.length - 1; i >= 0; i--) {
-      const g = gates[i];
-      g.x -= SPEED;
-      if (g.alpha < 0.7) g.alpha = Math.min(0.7, g.alpha + 0.01);
-      if (g.x < -GATE_SIZE - 4) gates.splice(i, 1);
+      const c = colors[p.hue];
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${c[0]},${c[1]},${c[2]},0.55)`;
+      ctx.fill();
     }
-    for (const g of gates) drawGate(g);
+
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        const a = points[i], b = points[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < MAX_DIST * MAX_DIST) {
+          const d = Math.sqrt(d2);
+          const alpha = (1 - d / MAX_DIST) * 0.18;
+          const c = colors[a.hue];
+          ctx.strokeStyle = `rgba(${c[0]},${c[1]},${c[2]},${alpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
 
     requestAnimationFrame(frame);
   }
 
   resize();
+  seed();
   frame();
 
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resize, 150);
+    resizeTimer = setTimeout(() => { resize(); seed(); }, 150);
   });
 })();
