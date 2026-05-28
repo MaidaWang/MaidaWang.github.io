@@ -5,6 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Maida Wang, PhD student at University College London. Quantum machine learning, quantum-informed PDEs, and practical quantum advantage on near-term hardware." />
 <title>Maida Wang | UCL</title>
+
+<!-- favicons -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/portrait.jpg" />
+<link rel="apple-touch-icon" href="assets/portrait.jpg" />
+
+<!-- canonical -->
+<link rel="canonical" href="https://maidawang.github.io/" />
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://maidawang.github.io/" />
+<meta property="og:title" content="Maida Wang — PhD Researcher, UCL" />
+<meta property="og:description" content="Quantum machine learning, hybrid quantum–classical AI, and practical quantum advantage on near-term hardware. PhD with Prof. Peter V. Coveney at UCL Centre for Computational Science." />
+<meta property="og:image" content="https://maidawang.github.io/assets/portrait.jpg" />
+<meta property="og:image:alt" content="Maida Wang" />
+<meta property="og:site_name" content="Maida Wang" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Maida Wang — PhD Researcher, UCL" />
+<meta name="twitter:description" content="Quantum machine learning, hybrid quantum–classical AI, and practical quantum advantage on near-term hardware." />
+<meta name="twitter:image" content="https://maidawang.github.io/assets/portrait.jpg" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -41,13 +65,14 @@
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__portrait">
+        <canvas class="bloch" width="380" height="380" aria-label="Bloch sphere — drag to rotate"></canvas>
         <div class="portrait-frame">
           <img src="assets/portrait.jpg" alt="Maida Wang" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <div class="portrait-placeholder">
             <span>portrait.jpg</span>
           </div>
         </div>
-        <div class="portrait-orbit"></div>
+        <span class="bloch-hint" aria-hidden="true">drag to rotate</span>
       </div>
 
       <div class="hero__body">

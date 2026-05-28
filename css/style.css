@@ -183,22 +183,34 @@ main, .nav, .foot { position: relative; z-index: 1; }
       transparent 10px 20px),
     var(--surface);
 }
-.portrait-orbit {
-  position: absolute; inset: -14px;
-  border-radius: 50%;
-  border: 1px dashed rgba(92,240,255,.3);
-  animation: spin 22s linear infinite;
+/* bloch sphere wireframe behind portrait */
+.bloch {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px; height: 380px;
+  cursor: grab;
+  z-index: 0;
+  touch-action: none;
+}
+.bloch:active { cursor: grabbing; }
+.hero__portrait .portrait-frame { position: relative; z-index: 1; }
+
+.bloch-hint {
+  position: absolute;
+  bottom: -28px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+  opacity: .7;
+  transition: opacity .4s ease;
   pointer-events: none;
 }
-.portrait-orbit::before, .portrait-orbit::after {
-  content: ""; position: absolute;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
-}
-.portrait-orbit::before { top: -4px; left: 50%; transform: translateX(-50%); }
-.portrait-orbit::after  { bottom: -4px; left: 50%; transform: translateX(-50%); background: var(--accent-3); box-shadow: 0 0 12px var(--accent-3); }
-@keyframes spin { to { transform: rotate(360deg); } }
+.hero__portrait.is-rotated .bloch-hint { opacity: 0; }
 
 /* hero body */
 .hero__eyebrow {
@@ -690,6 +702,8 @@ main, .nav, .foot { position: relative; z-index: 1; }
   .hero { padding-top: 50px; }
   .hero__inner { grid-template-columns: 1fr; gap: 32px; }
   .hero__portrait { width: 200px; }
+  .bloch       { transform: translate(-50%, -50%) scale(0.66); }
+  .bloch-hint  { display: none; }
   .grid--3 { grid-template-columns: 1fr; }
   .grid--2 { grid-template-columns: 1fr; }
   .news__item { grid-template-columns: 1fr; gap: 4px; }
@@ -705,6 +719,7 @@ main, .nav, .foot { position: relative; z-index: 1; }
 @media (max-width: 480px) {
   .hero { padding-left: 22px; padding-right: 22px; }
   .hero__portrait { width: 160px; }
+  .bloch { transform: translate(-50%, -50%) scale(0.52); }
   .nav__inner { padding: 12px 18px; }
   .nav__brand-name { display: none; }
   .contact__email { flex-direction: column; align-items: flex-start; gap: 10px; }
